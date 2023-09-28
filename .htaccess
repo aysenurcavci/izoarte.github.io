@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{SERVER_PORT} 80
+RewriteCond %{HTTP_HOST} ^(www\.)?valorinsaat\.com
+RewriteRule ^(.*)$ https://www.valorinsaat.com/$1 [R,L]
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}.php -f 
+RewriteRule ^(.*)$ $1.php 
+RewriteRule ^([a-z]+)\/?$ $1.php [NC]  
+</IfModule>
